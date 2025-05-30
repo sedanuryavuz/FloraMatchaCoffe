@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Flora.DtoLayer\Flora.DtoLayer.csproj" />
     <ProjectReference Include="..\Flora.EntityLayer\Flora.EntityLayer.csproj" />
   </ItemGroup>
 

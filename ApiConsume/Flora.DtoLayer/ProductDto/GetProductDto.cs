@@ -1,6 +1,4 @@
-﻿using Flora.DtoLayer.CategoryDto;
-
-namespace Flora.DtoLayer.ProductDto
+﻿namespace Flora.DtoLayer.ProductDto
 {
     public class GetProductDto
     {
@@ -10,6 +8,5 @@ namespace Flora.DtoLayer.ProductDto
         public decimal Price { get; set; }
         public string? ImageUrl { get; set; }
         public bool ProductStatus { get; set; }
-        public GetCategoryDto? Category { get; set; }
     }
 }

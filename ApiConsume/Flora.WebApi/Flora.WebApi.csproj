@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.16">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Flora.BusinessLayer\Flora.BusinessLayer.csproj" />
+    <ProjectReference Include="..\Flora.DtoLayer\Flora.DtoLayer.csproj" />
   </ItemGroup>
 
 </Project>

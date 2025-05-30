@@ -28,6 +28,11 @@ namespace Flora.BusinessLayer.Concrete
             return _productDal.GetById(id);
         }
 
+        public List<Product> TGetProductsWithCategories()
+        {
+            return _productDal.GetProductsWithCategories();
+        }
+
         public void TInsert(Product entity)
         {
             _productDal.Insert(entity);

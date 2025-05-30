@@ -1,4 +1,10 @@
+using Flora.DataAccessLayer.Concrete;
+using Flora.BusinessLayer.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<Context>();
+builder.Services.AddBusinessServices();
 
 // Add services to the container.
 
