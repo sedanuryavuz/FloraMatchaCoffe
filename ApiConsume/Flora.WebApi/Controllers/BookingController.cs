@@ -31,7 +31,7 @@ namespace Flora.WebApi.Controllers
             _bookingService.TInsert(entity);
             return Ok(entity);
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteBooking(int id)
         {
             var value = _bookingService.TGetById(id);
@@ -54,7 +54,7 @@ namespace Flora.WebApi.Controllers
             _bookingService.TUpdate(entity);
             return Ok("Başarılı bir şekilde güncellendi.");
         }
-        [HttpGet("GetBooking")]
+        [HttpGet("{id}")]
         public IActionResult GetBooking(int id)
         {
             var value = _bookingService.TGetById(id);

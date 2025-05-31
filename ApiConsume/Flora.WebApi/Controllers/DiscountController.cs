@@ -31,7 +31,7 @@ namespace Flora.WebApi.Controllers
             _discountService.TInsert(entity);
             return Ok("Başarılı bir şekilde eklendi.");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteDiscount(int id)
         {
             var value = _discountService.TGetById(id);
@@ -54,7 +54,7 @@ namespace Flora.WebApi.Controllers
             _discountService.TUpdate(entity);
             return Ok("Başarılı bir şekilde güncellendi.");
         }
-        [HttpGet("GetDiscount")]
+        [HttpGet("{id}")]
         public IActionResult GetDiscount(int id)
         {
             var value = _discountService.TGetById(id);

@@ -30,7 +30,7 @@ namespace Flora.WebApi.Controllers
             _testimonialService.TInsert(entity);
             return Ok("Başarılı bir şekilde eklendi.");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteTestimonial(int id)
         {
             var value = _testimonialService.TGetById(id);
@@ -53,7 +53,7 @@ namespace Flora.WebApi.Controllers
             _testimonialService.TUpdate(entity);
             return Ok("Başarılı bir şekilde güncellendi.");
         }
-        [HttpGet("GetTestimonial")]
+        [HttpGet("{id}")]
         public IActionResult GetTestimonial(int id)
         {
             var value = _testimonialService.TGetById(id);

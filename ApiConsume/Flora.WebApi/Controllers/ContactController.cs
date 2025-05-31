@@ -31,7 +31,7 @@ namespace Flora.WebApi.Controllers
             _contactService.TInsert(entity);
             return Ok("Başarılı bir şekilde eklendi.");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteContact(int id)
         {
             var value = _contactService.TGetById(id);
@@ -54,7 +54,7 @@ namespace Flora.WebApi.Controllers
             _contactService.TUpdate(entity);
             return Ok("Başarılı bir şekilde güncellendi.");
         }
-        [HttpGet("GetContact")]
+        [HttpGet("{id}")]
         public IActionResult GetContact(int id)
         {
             var value = _contactService.TGetById(id);

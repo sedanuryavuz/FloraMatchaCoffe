@@ -30,7 +30,7 @@ namespace Flora.WebApi.Controllers
             _socialMediaService.TInsert(entity);
             return Ok("Başarılı bir şekilde eklendi.");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteSocialMedia(int id)
         {
             var value = _socialMediaService.TGetById(id);
@@ -53,7 +53,7 @@ namespace Flora.WebApi.Controllers
             _socialMediaService.TUpdate(entity);
             return Ok("Başarılı bir şekilde güncellendi.");
         }
-        [HttpGet("GetSocialMedia")]
+        [HttpGet("{id}")]
         public IActionResult GetSocialMedia(int id)
         {
             var value = _socialMediaService.TGetById(id);
