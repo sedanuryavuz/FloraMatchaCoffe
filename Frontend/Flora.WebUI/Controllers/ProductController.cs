@@ -86,7 +86,8 @@ namespace Flora.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var product = JsonConvert.DeserializeObject<ResultProductDto>(jsonData);
+                var product = JsonConvert.DeserializeObject<UpdateProductDto>(jsonData);
+             
 
                 return View(product);
             }

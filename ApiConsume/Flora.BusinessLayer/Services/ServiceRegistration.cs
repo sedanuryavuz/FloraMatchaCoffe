@@ -41,6 +41,18 @@ namespace Flora.BusinessLayer.Services
 
             services.AddScoped<ITestimonialService, TestimonialManager>();
             services.AddScoped<ITestimonialDal,EfTestimonialDal>();
+
+            services.AddScoped<IOrderService, OrderManager>();
+            services.AddScoped<IOrderDal, EfOrderDal>();
+
+            services.AddScoped<IOrderDetailService, OrderDetailManager>();
+            services.AddScoped<IOrderDetailDal, EfOrderDetailDal>();
+
+            services.AddScoped<IMoneyCaseService, MoneyCaseManager>();
+            services.AddScoped<IMoneyCaseDal, EfMoneyCaseDal>();
+
+            services.AddScoped<IMenuTableService, MenuTableManager>();
+            services.AddScoped<IMenuTableDal, EfMenuTableDal>();
         }
     }
 }

@@ -38,6 +38,41 @@ namespace Flora.BusinessLayer.Concrete
             _productDal.Insert(entity);
         }
 
+        public int TProductCount()
+        {
+            return _productDal.ProductCount();
+        }
+
+        public int TProductCountByCategoryDessert()
+        {
+            return _productDal.ProductCountByCategoryDessert();
+        }
+
+        public int TProductCountByCategoryDrink()
+        {
+            return _productDal.ProductCountByCategoryDrink();
+        }
+
+        public string TProductNameByMaxPrice()
+        {
+            return _productDal.ProductNameByMaxPrice();
+        }
+
+        public string TProductNameByMinPrice()
+        {
+            return _productDal.ProductNameByMinPrice();
+        }
+
+        public decimal TProductPriceAvg()
+        {
+            return _productDal.ProductPriceAvg();
+        }
+
+        public decimal TProductPriceByCategoryDrink()
+        {
+            return _productDal.ProductPriceByCategoryDrink();
+        }
+
         public void TUpdate(Product entity)
         {
             _productDal.Update(entity);

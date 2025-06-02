@@ -44,6 +44,50 @@ namespace Flora.WebApi.Controllers
                 .ToList();
             return Ok(values.ToList());
         }
+
+        [HttpGet("ProductCount")]
+        public IActionResult ProductCount()
+        {
+            var value = _productService.TProductCount();
+            return Ok(value);
+        }
+        [HttpGet("ProductCountByCategoryDessert")]
+        public IActionResult ProductCountByCategoryDessert()
+        {
+            var value = _productService.TProductCountByCategoryDessert();
+            return Ok(value);
+        }
+        [HttpGet("ProductCountByCategoryDrink")]
+        public IActionResult ProductCountByCategoryDrink()
+        {
+            var value = _productService.TProductCountByCategoryDrink();
+            return Ok(value);
+        }
+        [HttpGet("ProductPriceAvg")]
+        public IActionResult ProductPriceAvg()
+        {
+            var value = _productService.TProductPriceAvg();
+            return Ok(value);
+        }
+        [HttpGet("ProductNameByMaxPrice")]
+        public IActionResult ProductNameByMaxPrice()
+        {
+            var value = _productService.TProductNameByMaxPrice();
+            return Ok(value);
+        }
+        [HttpGet("ProductNameByMinPrice")]
+        public IActionResult ProductNameByMinPrice()
+        {
+            var value = _productService.TProductNameByMinPrice();
+            return Ok(value);
+        }
+        [HttpGet("ProductPriceByCategoryDrink")]
+        public IActionResult ProductPriceByCategoryDrink()
+        {
+            var value = _productService.TProductPriceByCategoryDrink();
+            return Ok(value);
+        }
+
         [HttpPost]
         public IActionResult CreateProduct(CreateProductDto createProductDto)
         {
