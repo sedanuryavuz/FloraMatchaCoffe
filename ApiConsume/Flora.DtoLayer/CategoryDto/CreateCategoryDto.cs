@@ -4,5 +4,7 @@
     {
         public string? CategoryName { get; set; }
         public bool CategoryStatus { get; set; }
+        public string? CategoryCoverImg { get; set; }
+
     }
 }

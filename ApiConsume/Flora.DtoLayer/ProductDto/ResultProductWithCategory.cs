@@ -1,6 +1,4 @@
-﻿using Flora.DtoLayer.CategoryDto;
-
-namespace Flora.DtoLayer.ProductDto
+﻿namespace Flora.DtoLayer.ProductDto
 {
     public class ResultProductWithCategory
     {

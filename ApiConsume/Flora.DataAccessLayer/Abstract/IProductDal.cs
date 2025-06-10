@@ -12,5 +12,7 @@ namespace Flora.DataAccessLayer.Abstract
         string ProductNameByMaxPrice();
         string ProductNameByMinPrice();
         decimal ProductPriceByCategoryDrink();
+        List<Product> GetTop4DrinkProducts();
+
     }
 }

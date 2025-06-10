@@ -8,6 +8,5 @@ namespace Flora.BusinessLayer.Abstract
         int TActiveOrderCount();
         decimal TLastOrderTotalPrice();
         decimal TTodayTotalPrice();
-
     }
 }

@@ -13,6 +13,16 @@ namespace Flora.BusinessLayer.Concrete
             _discountDal = discountDal;
         }
 
+        public void TChangeStatusToFalse(int id)
+        {
+            _discountDal.ChangeStatusToFalse(id);
+        }
+
+        public void TChangeStatusToTrue(int id)
+        {
+            _discountDal.ChangeStatusToTrue(id);
+        }
+
         public void TDelete(Discount entity)
         {
             _discountDal.Delete(entity);
@@ -26,6 +36,11 @@ namespace Flora.BusinessLayer.Concrete
         public Discount TGetById(int id)
         {
             return _discountDal.GetById(id);
+        }
+
+        public List<Discount> TGetListByStatusTrue()
+        {
+            return _discountDal.GetListByStatusTrue();
         }
 
         public void TInsert(Discount entity)

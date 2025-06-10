@@ -1,0 +1,20 @@
+﻿@model List<ResultCategoryDto>
+<section class="menu-categories-showcase py-5 index-bg-g2">
+    <div class="container">
+        <div class="row justify-content-center">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6 text-center mb-4">
+                    <div class="category-showcase">
+                        <div class="showcase-image">
+                            <img src="@item.CategoryCoverImg" alt="Main Courses">
+                        </div>
+                        <div class="showcase-label">
+                            <span>@item.CategoryName?.ToLower()</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

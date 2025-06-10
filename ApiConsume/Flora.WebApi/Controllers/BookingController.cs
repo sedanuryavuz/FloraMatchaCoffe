@@ -65,5 +65,27 @@ namespace Flora.WebApi.Controllers
             var result = _mapper.Map<GetBookingDto>(value);
             return Ok(result);
         }
+        [HttpGet("BookingStatusApproved/{id}")]
+        public IActionResult BookingStatusApproved(int id)
+        {
+            var value = _bookingService.TGetById(id);
+            if (value == null)
+            {
+                return NotFound("Onaylanacak rezervasyon bulunamadı.");
+            }
+            _bookingService.TBookingStatusApproved(id);
+            return Ok("Rezervasyon onaylandı.");
+        }
+        [HttpGet("BookingStatusCancelled/{id}")]
+        public IActionResult BookingStatusCancelled(int id)
+        {
+            var value = _bookingService.TGetById(id);
+            if (value == null)
+            {
+                return NotFound("İptal edilecek rezervasyon bulunamadı.");
+            }
+            _bookingService.TBookingStatusCancelled(id);
+            return Ok("Rezervasyon iptal edildi.");
+        }
     }
 }

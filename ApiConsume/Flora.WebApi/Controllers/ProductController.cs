@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Flora.BusinessLayer.Abstract;
 using Flora.DataAccessLayer.Concrete;
+using Flora.DtoLayer.DiscountDto;
 using Flora.DtoLayer.ProductDto;
 using Flora.EntityLayer.Entities;
 using Microsoft.AspNetCore.Http;
@@ -87,7 +88,12 @@ namespace Flora.WebApi.Controllers
             var value = _productService.TProductPriceByCategoryDrink();
             return Ok(value);
         }
-
+        [HttpGet("GetTop4DrinkProducts")]
+        public IActionResult GetTop5DrinkProducts()
+        {
+            var values = _productService.TGetTop4DrinkProducts();
+            return Ok(values);
+        }
         [HttpPost]
         public IActionResult CreateProduct(CreateProductDto createProductDto)
         {

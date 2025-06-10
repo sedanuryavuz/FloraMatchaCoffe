@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Landing Page</title>
-     <!-- Bootstrap CSS -->
+    <title>Flora Matcha</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-        <link rel="icon" href="images/Pink Green Cute Circle Strawberry Milk Juice Logo.png" type="image/x-icon" />
+    <link href="s1.css" rel="stylesheet">
+    <link rel="icon" href="index/Pink Green Cute Circle Strawberry Milk Juice Logo.png" type="image/x-icon" />
+
+    <style>
+        .btn-group .btn.active {
+            background-color: #d2db76;
+            color: #28301c;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<body class="menu-page">
+<body>
     <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-         <img src="images/w.png" alt="Flora Logo" height="150">
-</a>
+                <img src="index/w.png" alt="Flora Logo" height="150">
+            </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -36,31 +44,45 @@
             </div>
         </div>
     </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slide active" style="background-image: url('index/2497cb88-1dd9-4ee9-81df-34de687dddab.png')"></div>
+        <div class="hero-slide" style="background-image: url('index/4.png')"></div>
+        <div class="hero-slide" style="background-image: url('index/3.png')"></div>
 
-            <!-- Menu Section -->
+        <!-- Hero içeriği -->
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Hero Title</h1>
+                <p>Your hero description</p>
+            </div>
+        </div>
 
-    <section class="menu-section py-5 index-menu-bg">
-  <div class="container text-center">
-
-
-    <!-- Kategoriler -->
-    <div class="btn-group mb-4" role="group">
-      <button class="btn btn-outline-success active" data-filter="all">All</button>
-      <button class="btn btn-outline-success" data-filter="matcha">Matcha</button>
-      <button class="btn btn-outline-success" data-filter="dessert">Desserts</button>
-      <button class="btn btn-outline-success" data-filter="drink">Drinks</button>
-    </div>
-
-    <!-- Menü Ürünleri -->
+        <!-- Scroll Down -->
+        <div class="scroll-down">
+            <div>Scroll Down</div>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    <!-- Menu Section -->
     <section class="menu-section py-5 index-menu-bg">
         <div class="container">
-            
+            <div class="text-center mb-4">
+                <h2 class="display-4 index-text-a">KATEGORİLER</h2>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-success active" data-filter="all">Tümü</button>
+                    <button type="button" class="btn btn-outline-success" data-filter="matcha">Matcha</button>
+                    <button type="button" class="btn btn-outline-success" data-filter="tatlı">Tatlılar</button>
+                    <button type="button" class="btn btn-outline-success" data-filter="içecek">İçecekler</button>
+                    <button type="button" class="btn btn-outline-success" data-filter="vegan">Vegan</button>
+                </div>
+            </div>
             <div class="row g-4">
                 <!-- Menu Item 1 -->
                 <div class="col-lg-3 col-md-6">
-                    <div class="menu-item">
+                    <div class="menu-item" data-category="matcha">
                         <div class="menu-image">
-                            <img src="images/9ec1ff567d1c3484fec2e67684045a45.jpg" alt="Teriyaki Roll" class="img-fluid">
+                            <img src="index/9ec1ff567d1c3484fec2e67684045a45.jpg" alt="Teriyaki Roll" class="img-fluid">
                         </div>
                         <div class="menu-content">
                             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -73,11 +95,171 @@
                     </div>
                 </div>
 
+                <!-- Menu Item 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item">
+                        <div class="menu-image">
+                            <div class="sale-badge">SALE</div>
+                            <img src="index/0f39b2185cd088777942d7d02f0769c0.jpg" alt="Fujisan" class="img-fluid">
+                        </div>
+                        <div class="menu-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="text-white">FUJISAN</h5>
+                                <div class="price">
+                                    <span class="text-muted text-decoration-line-through me-2" style="color: #ffc3cc !important;">$31.00</span>
+                                    <span>$27.00</span>
+                                </div>
+                            </div>
+                            <p class="text-muted">Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Ac turpis egestas ma.</p>
+                            <button class="btn btn-outline-light btn-sm">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item">
+                        <div class="menu-image">
+                            <img src="index/3ab0a6a582c06dc25a00c7bca87f426f.jpg" alt="Nigiri Salmon" class="img-fluid">
+                        </div>
+                        <div class="menu-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="text-white">NIGIRI SALMON</h5>
+                                <span class="price">$30.00</span>
+                            </div>
+                            <p class="text-muted">Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Ac turpis egestas ma.</p>
+                            <button class="btn btn-outline-light btn-sm">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item">
+                        <div class="menu-image">
+                            <img src="index/3ab0a6a582c06dc25a00c7bca87f426f.jpg" alt="Nigiri Salmon" class="img-fluid">
+                        </div>
+                        <div class="menu-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="text-white">NIGIRI SALMON</h5>
+                                <span class="price">$30.00</span>
+                            </div>
+                            <p class="text-muted">Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Ac turpis egestas ma.</p>
+                            <button class="btn btn-outline-light btn-sm">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item">
+                        <div class="menu-image">
+                            <img src="index/3ab0a6a582c06dc25a00c7bca87f426f.jpg" alt="Nigiri Salmon" class="img-fluid">
+                        </div>
+                        <div class="menu-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="text-white">NIGIRI SALMON</h5>
+                                <span class="price">$30.00</span>
+                            </div>
+                            <p class="text-muted">Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Ac turpis egestas ma.</p>
+                            <button class="btn btn-outline-light btn-sm">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item">
+                        <div class="menu-image">
+                            <img src="index/3ab0a6a582c06dc25a00c7bca87f426f.jpg" alt="Nigiri Salmon" class="img-fluid">
+                        </div>
+                        <div class="menu-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="text-white">NIGIRI SALMON</h5>
+                                <span class="price">$30.00</span>
+                            </div>
+                            <p class="text-muted">Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Ac turpis egestas ma.</p>
+                            <button class="btn btn-outline-light btn-sm">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item">
+                        <div class="menu-image">
+                            <img src="index/3ab0a6a582c06dc25a00c7bca87f426f.jpg" alt="Nigiri Salmon" class="img-fluid">
+                        </div>
+                        <div class="menu-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="text-white">NIGIRI SALMON</h5>
+                                <span class="price">$30.00</span>
+                            </div>
+                            <p class="text-muted">Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Ac turpis egestas ma.</p>
+                            <button class="btn btn-outline-light btn-sm">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item">
+                        <div class="menu-image">
+                            <img src="index/3ab0a6a582c06dc25a00c7bca87f426f.jpg" alt="Nigiri Salmon" class="img-fluid">
+                        </div>
+                        <div class="menu-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="text-white">NIGIRI SALMON</h5>
+                                <span class="price">$30.00</span>
+                            </div>
+                            <p class="text-muted">Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Ac turpis egestas ma.</p>
+                            <button class="btn btn-outline-light btn-sm">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item">
+                        <div class="menu-image">
+                            <img src="index/3ab0a6a582c06dc25a00c7bca87f426f.jpg" alt="Nigiri Salmon" class="img-fluid">
+                        </div>
+                        <div class="menu-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="text-white">NIGIRI SALMON</h5>
+                                <span class="price">$30.00</span>
+                            </div>
+                            <p class="text-muted">Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Ac turpis egestas ma.</p>
+                            <button class="btn btn-outline-light btn-sm">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item">
+                        <div class="menu-image">
+                            <img src="index/3ab0a6a582c06dc25a00c7bca87f426f.jpg" alt="Nigiri Salmon" class="img-fluid">
+                        </div>
+                        <div class="menu-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="text-white">NIGIRI SALMON</h5>
+                                <span class="price">$30.00</span>
+                            </div>
+                            <p class="text-muted">Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Ac turpis egestas ma.</p>
+                            <button class="btn btn-outline-light btn-sm">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item">
+                        <div class="menu-image">
+                            <img src="index/4e43163b7f131401be5df0d5b0fffda7f.jpg" alt="Thai Roll" class="img-fluid">
+                        </div>
+                        <div class="menu-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="text-white">THAI ROLL</h5>
+                                <span class="price">$38.00</span>
+                            </div>
+                            <p class="text-muted">Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Ac turpis egestas ma.</p>
+                            <button class="btn btn-outline-light btn-sm">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-     <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -86,10 +268,12 @@
                 </div>
                 <div class="col-md-4">
                     <h5>Contact</h5>
-                    <p>123 Health Street<br>
-                    New York, NY 10001<br>
-                    Phone: (555) 123-4567<br>
-                    Email: info@greenbite.com</p>
+                    <p>
+                        123 Health Street<br>
+                        New York, NY 10001<br>
+                        Phone: (555) 123-4567<br>
+                        Email: info@greenbite.com
+                    </p>
                 </div>
                 <div class="col-md-4">
                     <h5>Follow Us</h5>
@@ -102,11 +286,95 @@
                 </div>
             </div>
         </div>
-    </footer>  
-
+    </footer>
     <!-- Bootstrap JS -->
- <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
 
+        document.addEventListener('DOMContentLoaded', function () {
+            // Rezervasyon formu işlemleri
+        });
+
+        // Slider fonksiyonu
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active', 'active-zoom');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+                setTimeout(() => {
+                    slides[currentSlide].classList.add('active-zoom');
+                }, 100);
+            }
+
+            // İlk slide'a zoom efekti ekle
+            slides[0].classList.add('active', 'active-zoom');
+
+            // Her 6 saniyede bir slide değiştir
+            setInterval(nextSlide, 6000);
+        });
+
+        // Testimonials Slider
+        document.addEventListener('DOMContentLoaded', function () {
+            const dots = document.querySelectorAll('.dot');
+            const prev = document.querySelector('.slider-nav.prev');
+            const next = document.querySelector('.slider-nav.next');
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    dots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                });
+            });
+
+            // Add click handlers for prev/next buttons if you have multiple testimonials
+        });
+
+        // Optional: Add lightbox functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    // Add your lightbox logic here
+                    // You can use libraries like Fancybox, Lightbox2, etc.
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll('[data-filter]');
+            const items = document.querySelectorAll('.menu-item');
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    // Aktif sınıfı güncelle
+                    buttons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    items.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+
+                        if (filter === 'all' || itemCategory === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

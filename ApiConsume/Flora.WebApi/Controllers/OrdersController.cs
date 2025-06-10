@@ -1,6 +1,9 @@
 ﻿using Flora.BusinessLayer.Abstract;
+using Flora.DataAccessLayer.Concrete;
+using Flora.EntityLayer.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Flora.WebApi.Controllers
 {
@@ -39,5 +42,7 @@ namespace Flora.WebApi.Controllers
             var result = _orderService.TTodayTotalPrice();
             return Ok(result);
         }
+
+
     }
 }

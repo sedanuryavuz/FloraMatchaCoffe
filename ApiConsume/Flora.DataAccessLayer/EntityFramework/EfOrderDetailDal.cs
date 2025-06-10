@@ -9,6 +9,7 @@ namespace Flora.DataAccessLayer.EntityFramework
     {
         public EfOrderDetailDal(Context context) : base(context)
         {
+            
         }
     }
 }

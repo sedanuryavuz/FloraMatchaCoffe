@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
 using Flora.BusinessLayer.Abstract;
+using Flora.DataAccessLayer.Concrete;
 using Flora.DtoLayer.DiscountDto;
+using Flora.DtoLayer.ProductDto;
 using Flora.EntityLayer.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Flora.WebApi.Controllers
 {
@@ -63,6 +66,53 @@ namespace Flora.WebApi.Controllers
                 return NotFound("Veri bulunamadı.");
             }
             return Ok(value);
+        }
+        [HttpGet("GetDiscountedProducts")]
+        public IActionResult GetDiscountedProducts()
+        {
+            var context = new Context();
+            var values = context.Discounts!
+                .Include(x => x.Product).Select(y => new ProductWithDiscountDto
+                {
+                    ProductName = y.Product!.ProductName,
+                    Description = y.Product.Description,
+                    ImageUrl = y.Product.ImageUrl,
+                    ProductPrice = y.Product.Price,
+                    DiscountedPrice = y.Product.Price - (y.Product.Price * Convert.ToDecimal(y.Amount) / 100),
+
+                })
+                .ToList();
+            return Ok(values.ToList());
+        }
+        [HttpGet("ChangeStatusToTrue/{id}")]
+        public IActionResult ChangeStatusToTrue(int id)
+        {
+            var value = _discountService.TGetById(id);
+            if (value == null)
+            {
+                return NotFound("Veri bulunamadı.");
+            }
+            value.Status = true;
+            _discountService.TUpdate(value);
+            return Ok("Durum başarılı bir şekilde güncellendi.");
+        }
+        [HttpGet("ChangeStatusToFalse/{id}")]
+        public IActionResult ChangeStatusToFalse(int id)
+        {
+            var value = _discountService.TGetById(id);
+            if (value == null)
+            {
+                return NotFound("Veri bulunamadı.");
+            }
+            value.Status = false;
+            _discountService.TUpdate(value);
+            return Ok("Durum başarılı bir şekilde güncellendi.");
+        }
+        [HttpGet("GetListByStatusTrue")]
+        public IActionResult GetListByStatusTrue()
+        {
+            var values = _discountService.TGetListByStatusTrue();
+            return Ok(values);
         }
     }
 }

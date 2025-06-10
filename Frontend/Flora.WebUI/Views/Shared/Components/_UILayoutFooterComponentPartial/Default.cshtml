@@ -1,0 +1,29 @@
+﻿@model List<ResultSocialMediaDto>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Flora</h5>
+                <p>Healthy food for a better lifestyle</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Contact</h5>
+                <p>
+                    123 Health Street<br>
+                    New York, NY 10001<br>
+                    Phone: (555) 123-4567<br>
+                    Email: info@greenbite.com
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <div class="social-icons">
+                    @foreach (var item in Model)
+                    {
+                        <a href="@item.Url"><i class="@item.Icon"></i></a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,57 @@
+﻿@model LoginDto
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Giriş - Matcha Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/webuser/style.css">
+</head>
+<body>
+    <div class="admin-login-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="login-form-box">
+                        <h2>Admin Giriş</h2>
+                        <form id="adminLoginForm" method="post">
+                            <div class="form-floating mb-4" style="--animation-order: 1">
+                                <input type="text" class="form-control" id="username" placeholder="Kullanıcı Adı" required asp-for="Username">
+                                <label for="username"><i class="bi bi-person"></i> Kullanıcı Adı</label>
+                            </div>
+                            <div class="form-floating mb-4" style="--animation-order: 2">
+                                <input type="password" class="form-control" id="password" placeholder="Şifre" required asp-for="Password">
+                                <label for="password"><i class="bi bi-lock"></i> Şifre</label>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-4" style="--animation-order: 3">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Beni Hatırla</label>
+                                </div>
+                                <a href="#" class="forgot-password">Şifremi Unuttum</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-box-arrow-in-right"></i> Giriş Yap
+                            </button>
+                        </form>
+                        <div class="text-center">
+                            <a href="/Register/Index/" class="register-link">
+                                <i class="bi bi-person-plus"></i> Hesabınız yok mu? Kayıt olun
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

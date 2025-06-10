@@ -12,5 +12,6 @@ namespace Flora.BusinessLayer.Abstract
         string TProductNameByMaxPrice();
         string TProductNameByMinPrice();
         decimal TProductPriceByCategoryDrink();
+        List<Product> TGetTop4DrinkProducts();
     }
 }

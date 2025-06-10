@@ -1,0 +1,28 @@
+﻿@model List<ResultEmployeeDto>
+<section class="chefs-section py-5 i-bg-green">
+    <div class="container">
+        <div class="text-center mb-5 ">
+            <h2 class="display-4 index-text-g">EKİBİMİZLE TANIŞIN</h2>
+            <p class="text-muted index-text-g">Tutku ve deneyimle harmanlanmış ekibimiz, her fincanda size en iyi kahve deneyimini sunmak için çalışıyor. Kaliteye olan bağlılığımızla, kahve yolculuğunuzda yanınızdayız.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Chef 1 -->
+            @foreach(var item in Model){
+
+           
+            <div class="col-lg-4">
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="@item.ImageUrl" alt="Mateo Wolf">
+                    </div>
+                    <div class="chef-info">
+                        <h3 class="index-text-a">@item.FullName</h3>
+                        <p class="text-muted index-text-a">@item.Position</p>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>

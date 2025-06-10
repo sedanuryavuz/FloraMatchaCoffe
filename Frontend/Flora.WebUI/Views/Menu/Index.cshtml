@@ -1,0 +1,101 @@
+﻿@model List<ResultProductDto>
+@using System.Linq
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+@await Component.InvokeAsync("_DefaultSliderComponentPartial")
+
+<section class="menu-section py-5 index-menu-bg">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="display-4 index-text-a">KATEGORİLER</h2>
+            @* <div class="btn-group" role="group"> *@
+            @*     @foreach(var item in Model){ *@
+            @*     <button type="button" class="btn btn-outline-success" data-filter="all">@item.CategoryName</button> *@
+            @*     } *@
+            <div class="btn-group" role="group">
+                <button class="btn btn-outline-success filter-btn" data-filter="all">Tümünü Göster</button>
+                @foreach (var category in Model.Select(x => x.CategoryName).Distinct())
+                {
+                    <button type="button" class="btn btn-outline-success filter-btn" data-filter="@category">@category</button>
+                }
+            </div>
+
+
+            </div>
+        </div>
+        <div class="row g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item" data-category="@item.CategoryName">
+                    <div class="menu-image">
+                        <img src="@item.ImageUrl" alt="@item.ProductName" class="img-fluid">
+                    </div>
+                    <div class="menu-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="index-text-g">@item.ProductName</h5>
+                            <span class="price">@item.Price</span>
+                        </div>
+                        <p class="text-muted ">@item.Description</p>
+                        <button class="btn btn-outline-light btn-sm" onclick="showproductid(@item.ProductId, @ViewBag.v)" id="@item.ProductId">SEPETE EKLE</button>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const menuItems = document.querySelectorAll(".menu-item");
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const filter = button.getAttribute("data-filter");
+
+                menuItems.forEach(item => {
+                    const category = item.getAttribute("data-category");
+
+                    if (filter === "all" || filter === category) {
+                        item.parentElement.style.display = "block";
+                    } else {
+                        item.parentElement.style.display = "none";
+                    }
+                });
+            });
+        });
+    });
+
+            function showproductid(productId,menuTableId){
+        $.ajax({
+            type: 'POST',
+            url:"/Menu/AddBasket/",
+            data: {
+               id:productId
+                menuTableId: menuTableId
+            },
+            // contentType:'json',
+            success:function(){
+               Swal.fire({
+                  title: "İşlem Başarılı!",
+                  text: "Ürün Sepetinize Eklendi!",
+                  icon: "success"
+                });
+            }
+            error:function(xhr, status, error) {
+                console.error("Hata:", error);
+                console.error("Status:", status);
+                Swal.fire({
+                    title: "Hata!",
+                    text: "Ürün sepete eklenirken bir hata oluştu.",
+                    icon: "error"
+                });
+            }
+        });
+    }
+</script>

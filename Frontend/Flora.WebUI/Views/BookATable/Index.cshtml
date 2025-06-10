@@ -1,0 +1,76 @@
+﻿@model CreateBookingDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+<body class="reservation-page">
+    <section class="book-table-section">
+        <div class="container-fluid p-0">
+            <div class="reservation-wrapper">
+                <div class="reservation-overlay">
+                    <div class="container">
+                        <div class="text-center mb-4">
+                            <span class="text-white text-uppercase">ONLINE REZERVASYON</span>
+                            <h2 class="display-1 text-white mt-2">REZERVASYON OLUŞTURUN</h2>
+                        </div>
+                        <div class="reservation-form">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <form method="post">
+                                        <div class="row g-3 align-items-end">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" placeholder="İsim Soyisim" asp-for="Name">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="tel" class="form-control" placeholder="Telefon Numarası" asp-for="Phone">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="tel" class="form-control" placeholder="Mail Adres" asp-for="Mail">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-select" asp-for="PersonCount">
+                                                    <option value="" disabled selected>Kaç Kişisiniz?</option>
+                                                    <option value="1">1 Kişi</option>
+                                                    <option value="2">2 Kişi</option>
+                                                    <option value="3">3 Kişi</option>
+                                                    <option value="4">4 Kişi</option>
+                                                    <option value="5">5 Kişi</option>
+                                                    <option value="6">6++</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <input type="date" class="form-control" value="2025-05-28" asp-for="Date">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-select">
+                                                    <option>9:00</option>
+                                                    <option>9:30</option>
+                                                    <option>10:00</option>
+                                                    <option>10:30</option>
+                                                    <option>11:00</option>
+                                                    <option>15:00</option>
+                                                    <option>20:00</option>
+                                                    <option>21:00</option>
+                                                    <option>22:00</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-12 text-center mt-4">
+                                                <button type="submit" class="btn btn-book px-5">YERİNİZİ AYIRTIN</button>
+                                            </div>
+                                    </form>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+</body>

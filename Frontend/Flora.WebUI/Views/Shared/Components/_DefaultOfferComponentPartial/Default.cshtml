@@ -1,0 +1,34 @@
+﻿@model List<ResultProductDto>
+<section class="menu-section py-5 index-menu-bg">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-4 index-text-a">EN ÇOK TERCİH EDİLENLER</h2>
+            <p class="text-muted index-text-a">Doğal içerikler, benzersiz lezzetler ve özenle hazırlanan tariflerle en çok sevilen matcha çeşitlerimizi senin için bir araya getirdik.</p>
+        </div>
+
+        <div class="row g-4">
+            
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6">
+                    <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="@item.ImageUrl" alt="Teriyaki Roll" class="img-fluid">
+                    </div>
+                    <div class="menu-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="index-text-g">@item.ProductName</h5>
+                                <div class="price">
+                                    <span class="text-muted" style="color: #ffc3cc !important;">@item.Price₺</span>
+                                </div>
+                        </div>
+                        <p class="text-muted ">@item.Description</p>
+                        <button class="btn btn-outline-light btn-sm">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+            }
+
+        </div>
+    </div>
+</section>

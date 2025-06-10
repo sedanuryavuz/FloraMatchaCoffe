@@ -52,7 +52,16 @@ namespace Flora.BusinessLayer.Services
             services.AddScoped<IMoneyCaseDal, EfMoneyCaseDal>();
 
             services.AddScoped<IMenuTableService, MenuTableManager>();
-            services.AddScoped<IMenuTableDal, EfMenuTableDal>();
+            services.AddScoped<IMenuTableDal, EfMenuTableDal>();            
+            
+            services.AddScoped<IEmployeeService, EmployeeManager>();
+            services.AddScoped<IEmployeeDal, EfEmployeeDal>();            
+            
+            services.AddScoped<IBasketService, BasketManager>();
+            services.AddScoped<IBasketDal, EfBasketDal>();            
+            
+            services.AddScoped<INotificationService, NotificationManager>();
+            services.AddScoped<INotificationDal, EfNotificationDal>();
         }
     }
 }

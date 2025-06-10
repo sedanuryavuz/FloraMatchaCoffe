@@ -1,0 +1,33 @@
+﻿@model List<ResultTestimonialDto>
+<section class="testimonials-section py-5 index-bg-g">
+    <div class="container">
+        <h2 class="testimonial-title script-font text-gold mb-4 index-text text-center">
+            Bizi Tercih Edenler Ne Diyor?
+        </h2>
+
+        <div class="swiper testimonial-slider position-relative">
+            <div class="swiper-wrapper">
+                @foreach (var item in Model)
+                {
+                    <div class="swiper-slide">
+                        <div class="testimonial-item text-center px-5">
+                            <p class="text-muted mb-4 index-text-a">"@item.Comment"</p>
+                            <div class="testimonial-author">
+                                <p class="text-muted mb-0 index-text">/ @item.Name / @item.Title</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <button class="slider-nav prev swiper-button-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-nav next swiper-button-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="slider-dots swiper-pagination mt-4"></div>
+        </div>
+    </div>
+</section>

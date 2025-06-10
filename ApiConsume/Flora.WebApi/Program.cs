@@ -1,6 +1,7 @@
 using Flora.DataAccessLayer.Concrete;
 using Flora.BusinessLayer.Services;
 using Flora.WebApi.Hubs;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,11 @@ builder.Services.AddSignalR();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddBusinessServices();
 builder.Services.AddAutoMapper(typeof(Program));
+
+
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler =
+    ReferenceHandler.IgnoreCycles);
 
 // Add services to the container.
 

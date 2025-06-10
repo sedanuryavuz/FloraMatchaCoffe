@@ -70,6 +70,7 @@ namespace Flora.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
         {
+            updateCategoryDto.CategoryStatus = true;
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateCategoryDto);
             StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");

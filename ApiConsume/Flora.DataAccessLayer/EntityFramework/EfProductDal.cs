@@ -1,7 +1,6 @@
 ﻿using Flora.DataAccessLayer.Abstract;
 using Flora.DataAccessLayer.Concrete;
 using Flora.DataAccessLayer.Repositories;
-using Flora.DtoLayer.ProductDto;
 using Flora.EntityLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,12 +11,21 @@ namespace Flora.DataAccessLayer.EntityFramework
         public EfProductDal(Context context) : base(context)
         {
         }
-
         public List<Product> GetProductsWithCategories()
         {
             var context = new Context();
             var values = context.Products!
                 .Include(x => x.Category).ToList();
+            return values;
+        }
+
+        public List<Product> GetTop4DrinkProducts()
+        {
+            var context = new Context();
+            var values = context.Products!
+                .Where(x => x.CategoryId == (context.Categories!.Where
+                (y => y.CategoryName == "İçecekler").Select(z => z.CategoryId).FirstOrDefault()))
+                .OrderByDescending(x => x.Price).Take(4).ToList();
             return values;
         }
 
@@ -32,7 +40,7 @@ namespace Flora.DataAccessLayer.EntityFramework
             using var context = new Context();
             return context.Products!
                 .Where(x => x.CategoryId == (context.Categories!.Where
-                (y => y.CategoryName == "İçecek").Select(z => z.CategoryId).FirstOrDefault())).Count();
+                (y => y.CategoryName == "İçecekler").Select(z => z.CategoryId).FirstOrDefault())).Count();
         }
 
         public int ProductCountByCategoryDrink()
@@ -40,7 +48,7 @@ namespace Flora.DataAccessLayer.EntityFramework
             using var context = new Context();
             return context.Products!
                 .Where(x => x.CategoryId == (context.Categories!.Where
-                (y => y.CategoryName == "Tatlı").Select(z => z.CategoryId).FirstOrDefault())).Count();
+                (y => y.CategoryName == "Tatlılar").Select(z => z.CategoryId).FirstOrDefault())).Count();
         }
 
         public string ProductNameByMaxPrice()
@@ -69,7 +77,7 @@ namespace Flora.DataAccessLayer.EntityFramework
             using var context = new Context();
             return context.Products!
                 .Where(x => x.CategoryId == (context.Categories!.Where
-                (y => y.CategoryName == "İçecek").Select(z => z.CategoryId).FirstOrDefault())).Average(z => z.Price);
+                (y => y.CategoryName == "İçecekler").Select(z => z.CategoryId).FirstOrDefault())).Average(z => z.Price);
         }
     }
 }

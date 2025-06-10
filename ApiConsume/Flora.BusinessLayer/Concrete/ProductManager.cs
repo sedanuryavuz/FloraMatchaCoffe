@@ -33,6 +33,11 @@ namespace Flora.BusinessLayer.Concrete
             return _productDal.GetProductsWithCategories();
         }
 
+        public List<Product> TGetTop4DrinkProducts()
+        {
+            return _productDal.GetTop4DrinkProducts();
+        }
+
         public void TInsert(Product entity)
         {
             _productDal.Insert(entity);

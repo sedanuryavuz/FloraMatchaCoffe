@@ -1,9 +1,10 @@
 ﻿using Flora.EntityLayer.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Flora.DataAccessLayer.Concrete
 {
-    public class Context:DbContext
+    public class Context:IdentityDbContext<AppUser,AppRole,int>
     {
         override protected void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -22,5 +23,8 @@ namespace Flora.DataAccessLayer.Concrete
         public DbSet<OrderDetail>? OrderDetails { get; set; }
         public DbSet<MoneyCase>? MoneyCases { get; set; }
         public DbSet<MenuTable>? MenuTables { get; set; }
+        public DbSet<Employee>? Employees { get; set; }
+        public DbSet<Basket>? Baskets { get; set; }
+        public DbSet<Notification>? Notifications { get; set; }
     }
 }

@@ -2,6 +2,8 @@
 using Flora.DataAccessLayer.Concrete;
 using Flora.DataAccessLayer.Repositories;
 using Flora.EntityLayer.Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.EntityFrameworkCore;
 
 namespace Flora.DataAccessLayer.EntityFramework
 {
@@ -16,7 +18,6 @@ namespace Flora.DataAccessLayer.EntityFramework
             using var context = new Context();
             return context.Orders!.Where(x => x.Description == "Müşteri Masada").Count();
         }
-
         public decimal LastOrderTotalPrice()
         {
             using var context = new Context();

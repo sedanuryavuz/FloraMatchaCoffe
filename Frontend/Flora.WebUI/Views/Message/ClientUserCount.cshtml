@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+
+<section class="menu-section py-5 index-menu-bg">
+    <div class="container">
+        <div class="content">
+            <div class="container-fluid">
+                <script type="text/javascript">
+
+                    $(document).ready(()=>{
+
+                        var connection = new signalR.HubConnectionBuilder()
+                        .withUrl("https://localhost:7048/SignalRHub").build();
+
+                        $("#connstatus").text(connection.state);
+
+                        connection.start().then(() => {
+                            $("#connstatus").text(connection.state);
+                        }).catch((err)=>{console.log(err) });
+
+
+                        connection.on("ReceiveClientCount",(clientcount)=> {
+                         $("#clientcountvalue").text(clientcount)
+                        });
+
+                    });
+
+                </script>
+
+
+
+                <h4 class="page-title">Anlık Client Sayısı: <strong id="clientcountvalue"></strong></h4>
+
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+
